@@ -32,7 +32,7 @@ config = laravel_config(
         # so "&&" is passed as a literal argument and migrate fails.
         # Migrations are already applied; restore "php artisan migrate
         # --force" here once the seed has run.
-        "after_deploy": "php artisan db:seed --class=Database\\Seeders\\NilricOrganizationSeeder --force",
+        "after_deploy": "php artisan db:seed --class=Database\\Seeders\\NilricOrganizationSeeder --force --no-interaction",
     },
 )
 
