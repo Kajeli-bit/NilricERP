@@ -17,6 +17,15 @@ config = laravel_config(
     composer_build_script = "post-update-cmd-wasmer",
     php_version = "8.3.29",
     php_public_dir = "public",
+    # In production, `artisan migrate` asks for an interactive confirmation
+    # ("Are you sure you want to run this command? (yes/no)"). There is no
+    # terminal in the deploy hook, so it silently defaults to "no", the
+    # migration never runs, and the app instance dies. --force skips the
+    # prompt. Without this override the provider default is a plain
+    # `php artisan migrate` (see serve.bzl _override_serve_commands).
+    commands = {
+        "after_deploy": "php artisan migrate --force",
+    },
 )
 
 build = laravel_build(config)
