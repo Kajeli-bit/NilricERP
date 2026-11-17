@@ -28,11 +28,19 @@ laravel_serve(
     # Strip everything the runtime does not need after assets are compiled:
     # - node_modules (Vite output in public/build is already produced)
     # - Composer dev dependencies (phpunit, pest, pint, boost, ...)
+    # The --no-dev prune must be followed by package:discover: the earlier
+    # dev install generated bootstrap/cache/packages.php listing dev-only
+    # providers (Laravel\Boost, Pail, Collision, ...). With --no-scripts
+    # that manifest is never regenerated, so at runtime Laravel tries to
+    # load classes that no longer exist ("Class ... not found").
+    # Re-running package:discover rebuilds the manifest from the
+    # production-only vendor tree.
     build_post = [
         run("rm -rf node_modules", group = "build"),
         run(
             "composer install --no-dev --optimize-autoloader --ignore-platform-reqs --no-scripts --no-interaction",
             group = "build",
         ),
+        run("php artisan package:discover --ansi", group = "build"),
     ],
 )
