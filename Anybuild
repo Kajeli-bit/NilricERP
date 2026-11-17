@@ -24,7 +24,10 @@ config = laravel_config(
     # prompt. Without this override the provider default is a plain
     # `php artisan migrate` (see serve.bzl _override_serve_commands).
     commands = {
-        "after_deploy": "php artisan migrate --force",
+        # One-time organization seed (departments, positions, roles, employee
+        # mapping). Idempotent, but remove after it has run once on production
+        # so deploys stay fast.
+        "after_deploy": "php artisan migrate --force && php artisan db:seed --class=Database\\Seeders\\NilricOrganizationSeeder",
     },
 )
 
