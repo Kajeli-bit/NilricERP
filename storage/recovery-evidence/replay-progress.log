@@ -1,0 +1,276 @@
+08:24:49 1 file= pos= sql= io= err= 
+DONE sql= err=
+11 query-failed
+12 query-failed
+13 query-failed
+14 query-failed
+15 query-failed
+08:25:06 1 file= pos=2420151 sql=Yes err=0 ______________Last_SQL_Error:_
+16 query-failed
+17 query-failed
+08:25:12 2 file= pos=976382 sql=Yes err=0 ______________Last_SQL_Error:_
+18 query-failed
+19 query-failed
+08:25:18 3 file= pos=1350319 sql=Yes err=0 ______________Last_SQL_Error:_
+20 query-failed
+21 query-failed
+08:25:24 4 file= pos=1364617 sql=Yes err=0 ______________Last_SQL_Error:_
+22 query-failed
+23 query-failed
+08:25:30 5 file= pos=1368158 sql=Yes err=0 ______________Last_SQL_Error:_
+24 query-failed
+08:25:36 6 file= pos=1377579 sql=Yes err=0 ______________Last_SQL_Error:_
+25 query-failed
+26 query-failed
+08:25:41 7 file= pos=1486429 sql=Yes err=0 ______________Last_SQL_Error:_
+27 query-failed
+28 query-failed
+08:25:47 8 file= pos=1918833 sql=Yes err=0 ______________Last_SQL_Error:_
+29 query-failed
+30 query-failed
+08:25:53 9 file= pos=1928944 sql=Yes err=0 ______________Last_SQL_Error:_
+31 query-failed
+08:25:59 10 file= pos=1956578 sql=Yes err=0 ______________Last_SQL_Error:_
+32 query-failed
+33 query-failed
+08:26:05 11 file= pos=3038715 sql=Yes err=0 ______________Last_SQL_Error:_
+34 query-failed
+35 query-failed
+08:26:10 12 file= pos=3050787 sql=Yes err=0 ______________Last_SQL_Error:_
+36 query-failed
+37 query-failed
+08:26:17 13 file= pos=3061455 sql=Yes err=0 ______________Last_SQL_Error:_
+38 query-failed
+08:26:22 14 file= pos=3736983 sql=Yes err=0 ______________Last_SQL_Error:_
+39 query-failed
+40 query-failed
+08:26:28 15 file= pos=4924162 sql=Yes err=0 ______________Last_SQL_Error:_
+41 query-failed
+42 query-failed
+08:26:34 16 file= pos=6903874 sql=Yes err=0 ______________Last_SQL_Error:_
+43 query-failed
+44 query-failed
+08:26:40 17 file= pos=9811057 sql=Yes err=0 ______________Last_SQL_Error:_
+45 query-failed
+08:26:47 18 file= pos=10376470 sql=Yes err=0 ______________Last_SQL_Error:_
+46 query-failed
+47 query-failed
+08:26:53 19 file= pos=10388717 sql=Yes err=0 ______________Last_SQL_Error:_
+48 query-failed
+49 query-failed
+08:26:59 20 file= pos=10398008 sql=Yes err=0 ______________Last_SQL_Error:_
+50 query-failed
+51 query-failed
+08:27:05 21 file= pos=10407956 sql=Yes err=0 ______________Last_SQL_Error:_
+52 query-failed
+08:27:10 22 file= pos=10506648 sql=Yes err=0 ______________Last_SQL_Error:_
+53 query-failed
+54 query-failed
+08:27:16 23 file= pos=10519260 sql=Yes err=0 ______________Last_SQL_Error:_
+55 query-failed
+56 query-failed
+08:27:22 24 file= pos=10525991 sql=Yes err=0 ______________Last_SQL_Error:_
+57 query-failed
+58 query-failed
+08:27:28 25 file= pos=10536601 sql=Yes err=0 ______________Last_SQL_Error:_
+59 query-failed
+08:27:34 26 file= pos=10550293 sql=Yes err=0 ______________Last_SQL_Error:_
+60 query-failed
+61 query-failed
+08:27:40 27 file= pos=10560111 sql=Yes err=0 ______________Last_SQL_Error:_
+62 query-failed
+63 query-failed
+08:27:46 28 file= pos=10571486 sql=Yes err=0 ______________Last_SQL_Error:_
+64 query-failed
+65 query-failed
+08:27:51 29 file= pos=10575962 sql=Yes err=0 ______________Last_SQL_Error:_
+66 query-failed
+08:27:57 30 file= pos=10578921 sql=Yes err=0 ______________Last_SQL_Error:_
+67 query-failed
+68 query-failed
+08:28:03 31 file= pos=10586719 sql=Yes err=0 ______________Last_SQL_Error:_
+69 query-failed
+70 query-failed
+08:28:09 32 file= pos=10593778 sql=Yes err=0 ______________Last_SQL_Error:_
+71 query-failed
+72 query-failed
+08:28:15 33 file= pos=10602159 sql=Yes err=0 ______________Last_SQL_Error:_
+73 query-failed
+08:28:21 34 file= pos=10609914 sql=Yes err=0 ______________Last_SQL_Error:_
+74 query-failed
+75 query-failed
+08:28:27 35 file= pos=10615186 sql=Yes err=0 ______________Last_SQL_Error:_
+76 query-failed
+77 query-failed
+08:28:32 36 file= pos=10618201 sql=Yes err=0 ______________Last_SQL_Error:_
+78 query-failed
+79 query-failed
+08:28:38 37 file= pos=10626689 sql=Yes err=0 ______________Last_SQL_Error:_
+80 query-failed
+08:28:44 38 file= pos=10629515 sql=Yes err=0 ______________Last_SQL_Error:_
+81 query-failed
+82 query-failed
+08:28:50 39 file= pos=10641163 sql=Yes err=0 ______________Last_SQL_Error:_
+83 query-failed
+84 query-failed
+08:28:56 40 file= pos=10659576 sql=Yes err=0 ______________Last_SQL_Error:_
+85 query-failed
+86 query-failed
+08:29:02 41 file= pos=10668192 sql=Yes err=0 ______________Last_SQL_Error:_
+87 query-failed
+08:29:07 42 file= pos=10777782 sql=Yes err=0 ______________Last_SQL_Error:_
+88 query-failed
+89 query-failed
+08:29:13 43 file= pos=10880959 sql=Yes err=0 ______________Last_SQL_Error:_
+90 query-failed
+91 query-failed
+08:29:19 44 file= pos=12470016 sql=Yes err=0 ______________Last_SQL_Error:_
+92 query-failed
+93 query-failed
+08:29:25 45 file= pos=14555645 sql=Yes err=0 ______________Last_SQL_Error:_
+94 query-failed
+08:29:31 46 file= pos=17354698 sql=Yes err=0 ______________Last_SQL_Error:_
+95 query-failed
+96 query-failed
+08:29:37 47 file= pos=20155542 sql=Yes err=0 ______________Last_SQL_Error:_
+97 query-failed
+98 query-failed
+08:29:42 48 file= pos=22627721 sql=Yes err=0 ______________Last_SQL_Error:_
+99 query-failed
+100 query-failed
+08:29:48 49 file= pos=25529304 sql=Yes err=0 ______________Last_SQL_Error:_
+101 query-failed
+08:29:54 50 file= pos=28376801 sql=Yes err=0 ______________Last_SQL_Error:_
+102 query-failed
+103 query-failed
+08:30:00 51 file= pos=30338390 sql=Yes err=0 ______________Last_SQL_Error:_
+104 query-failed
+105 query-failed
+08:30:06 52 file= pos=30460999 sql=Yes err=0 ______________Last_SQL_Error:_
+106 query-failed
+107 query-failed
+08:30:12 53 file= pos=30483325 sql=Yes err=0 ______________Last_SQL_Error:_
+108 query-failed
+08:30:18 54 file= pos=30504044 sql=Yes err=0 ______________Last_SQL_Error:_
+109 query-failed
+110 query-failed
+08:30:24 55 file= pos=30518132 sql=Yes err=0 ______________Last_SQL_Error:_
+111 query-failed
+112 query-failed
+08:30:30 56 file= pos=30531449 sql=Yes err=0 ______________Last_SQL_Error:_
+113 query-failed
+114 query-failed
+08:30:36 57 file= pos=30544540 sql=Yes err=0 ______________Last_SQL_Error:_
+115 query-failed
+08:30:41 58 file= pos=30565280 sql=Yes err=0 ______________Last_SQL_Error:_
+116 query-failed
+117 query-failed
+08:30:47 59 file= pos=30581495 sql=Yes err=0 ______________Last_SQL_Error:_
+118 query-failed
+119 query-failed
+08:30:53 60 file= pos=30598122 sql=Yes err=0 ______________Last_SQL_Error:_
+120 query-failed
+121 query-failed
+08:30:59 61 file= pos=30610437 sql=Yes err=0 ______________Last_SQL_Error:_
+122 query-failed
+08:31:04 62 file= pos=30626682 sql=Yes err=0 ______________Last_SQL_Error:_
+123 query-failed
+124 query-failed
+08:31:10 63 file= pos=30649208 sql=Yes err=0 ______________Last_SQL_Error:_
+125 query-failed
+126 query-failed
+08:31:16 64 file= pos=30662025 sql=Yes err=0 ______________Last_SQL_Error:_
+127 query-failed
+128 query-failed
+08:31:22 65 file= pos=30678451 sql=Yes err=0 ______________Last_SQL_Error:_
+129 query-failed
+08:31:28 66 file= pos=30695210 sql=Yes err=0 ______________Last_SQL_Error:_
+130 query-failed
+131 query-failed
+08:31:34 67 file= pos=30708687 sql=Yes err=0 ______________Last_SQL_Error:_
+132 query-failed
+133 query-failed
+08:31:39 68 file= pos=30729919 sql=Yes err=0 ______________Last_SQL_Error:_
+134 query-failed
+135 query-failed
+08:31:45 69 file= pos=30744032 sql=Yes err=0 ______________Last_SQL_Error:_
+136 query-failed
+08:31:51 70 file= pos=30757948 sql=Yes err=0 ______________Last_SQL_Error:_
+137 query-failed
+138 query-failed
+08:31:57 71 file= pos=30780723 sql=Yes err=0 ______________Last_SQL_Error:_
+139 query-failed
+140 query-failed
+08:32:03 72 file= pos=30804088 sql=Yes err=0 ______________Last_SQL_Error:_
+141 query-failed
+142 query-failed
+08:32:09 73 file= pos=30820367 sql=Yes err=0 ______________Last_SQL_Error:_
+143 query-failed
+144 query-failed
+08:32:15 74 file= pos=30834936 sql=Yes err=0 ______________Last_SQL_Error:_
+145 query-failed
+08:32:20 75 file= pos=30847829 sql=Yes err=0 ______________Last_SQL_Error:_
+146 query-failed
+147 query-failed
+08:32:26 76 file= pos=30863222 sql=Yes err=0 ______________Last_SQL_Error:_
+148 query-failed
+149 query-failed
+08:32:32 77 file= pos=30883962 sql=Yes err=0 ______________Last_SQL_Error:_
+150 query-failed
+08:32:38 78 file= pos=30901641 sql=Yes err=0 ______________Last_SQL_Error:_
+151 query-failed
+152 query-failed
+08:32:44 79 file= pos=30915646 sql=Yes err=0 ______________Last_SQL_Error:_
+153 query-failed
+154 query-failed
+08:32:49 80 file= pos=30929498 sql=Yes err=0 ______________Last_SQL_Error:_
+155 query-failed
+156 query-failed
+08:32:56 81 file= pos=30948722 sql=Yes err=0 ______________Last_SQL_Error:_
+157 query-failed
+158 query-failed
+08:33:02 82 file= pos=30968645 sql=Yes err=0 ______________Last_SQL_Error:_
+159 query-failed
+08:33:08 83 file= pos=30985465 sql=Yes err=0 ______________Last_SQL_Error:_
+160 query-failed
+161 query-failed
+08:33:13 84 file= pos=31000419 sql=Yes err=0 ______________Last_SQL_Error:_
+162 query-failed
+163 query-failed
+08:33:19 85 file= pos=31014454 sql=Yes err=0 ______________Last_SQL_Error:_
+164 query-failed
+165 query-failed
+08:33:25 86 file= pos=31036869 sql=Yes err=0 ______________Last_SQL_Error:_
+166 query-failed
+08:33:31 87 file= pos=31054626 sql=Yes err=0 ______________Last_SQL_Error:_
+167 query-failed
+168 query-failed
+08:33:36 88 file= pos=31069692 sql=Yes err=0 ______________Last_SQL_Error:_
+169 query-failed
+170 query-failed
+08:33:42 89 file= pos=31083316 sql=Yes err=0 ______________Last_SQL_Error:_
+171 query-failed
+08:33:48 90 file= pos=31102008 sql=Yes err=0 ______________Last_SQL_Error:_
+172 query-failed
+173 query-failed
+08:33:54 91 file= pos=31128330 sql=Yes err=0 ______________Last_SQL_Error:_
+174 query-failed
+175 query-failed
+08:34:00 92 file= pos=31154026 sql=Yes err=0 ______________Last_SQL_Error:_
+176 query-failed
+177 query-failed
+08:34:06 93 file= pos=31188965 sql=Yes err=0 ______________Last_SQL_Error:_
+178 query-failed
+179 query-failed
+08:34:12 94 file= pos=31214734 sql=Yes err=0 ______________Last_SQL_Error:_
+180 query-failed
+08:34:18 95 file= pos=31240795 sql=Yes err=0 ______________Last_SQL_Error:_
+181 query-failed
+182 query-failed
+08:34:24 96 file= pos=31276807 sql=Yes err=0 ______________Last_SQL_Error:_
+183 query-failed
+184 query-failed
+08:34:30 97 file= pos=31301053 sql=Yes err=0 ______________Last_SQL_Error:_
+185 query-failed
+186 query-failed
+08:34:36 98 file= pos=31329092 sql=Yes err=0 ______________Last_SQL_Error:_
