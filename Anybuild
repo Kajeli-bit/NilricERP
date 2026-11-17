@@ -27,7 +27,12 @@ config = laravel_config(
         # One-time organization seed (departments, positions, roles, employee
         # mapping). Idempotent, but remove after it has run once on production
         # so deploys stay fast.
-        "after_deploy": "php artisan migrate --force && php artisan db:seed --class=Database\\Seeders\\NilricOrganizationSeeder",
+        # One-time organization seed (departments, positions, roles, employee
+        # mapping). Must be a SINGLE command: the deploy hook has no shell,
+        # so "&&" is passed as a literal argument and migrate fails.
+        # Migrations are already applied; restore "php artisan migrate
+        # --force" here once the seed has run.
+        "after_deploy": "php artisan db:seed --class=Database\\Seeders\\NilricOrganizationSeeder",
     },
 )
 
