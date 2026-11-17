@@ -1,0 +1,38 @@
+# Custom Anybuild definition for NilricERP (Laravel on Wasmer Edge).
+#
+# This file replaces the auto-generated one. It adds build_post steps that
+# remove node_modules and prune Composer dev dependencies after the build,
+# so the exported runtime image stays small and the depot builder does not
+# run out of memory while exporting it.
+
+load("//anybuild/tools:laravel.bzl", "laravel_build", "laravel_config", "laravel_serve")
+
+config = laravel_config(
+    schema = 1,
+    node_package_manager = "npm",
+    node_build_command = "npm run build",
+    node_version = "24",
+    php_framework = "laravel",
+    composer_enable = True,
+    composer_build_script = "post-update-cmd",
+    php_version = "8.3.29",
+    php_public_dir = "public",
+)
+
+build = laravel_build(config)
+
+laravel_serve(
+    config,
+    build,
+    name = "nilricerp",
+    # Strip everything the runtime does not need after assets are compiled:
+    # - node_modules (Vite output in public/build is already produced)
+    # - Composer dev dependencies (phpunit, pest, pint, boost, ...)
+    build_post = [
+        run("rm -rf node_modules", group = "build"),
+        run(
+            "composer install --no-dev --optimize-autoloader --ignore-platform-reqs --no-scripts --no-interaction",
+            group = "build",
+        ),
+    ],
+)
