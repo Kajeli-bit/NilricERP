@@ -178,7 +178,15 @@ class CompanyAwareSettingsRepository extends DatabaseSettingsRepository
             return true;
         }
 
-        return self::$hasCompanyColumn = Schema::hasColumn('settings', 'company_id');
+        // The database may be unreachable while artisan boots (e.g. during
+        // CI/deploy builds where the configured host is remote or absent).
+        // Treat probe failures as "column missing" so boot never crashes
+        // or hangs on a settings lookup.
+        try {
+            return self::$hasCompanyColumn = Schema::hasColumn('settings', 'company_id');
+        } catch (\Throwable) {
+            return self::$hasCompanyColumn = false;
+        }
     }
 
     protected function currentCompanyId(): ?int

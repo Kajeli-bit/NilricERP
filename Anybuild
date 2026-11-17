@@ -48,6 +48,14 @@ laravel_serve(
             "rm -f bootstrap/cache/packages.php bootstrap/cache/services.php bootstrap/cache/config.php",
             group = "build",
         ),
-        run("php artisan package:discover --ansi", group = "build"),
+        # Force a fast-failing local DB address: Wasmer injects the remote
+        # MySQL host at build time, and connecting to it from the build
+        # machine hangs until the 300s step timeout. artisan commands here
+        # (package:discover) never write to the database, so a connection
+        # refusal is instant and harmless with the fail-safe probe above.
+        run(
+            "DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=laravel DB_USERNAME=root DB_PASSWORD= php artisan package:discover --ansi",
+            group = "build",
+        ),
     ],
 )
