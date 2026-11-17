@@ -17,22 +17,10 @@ config = laravel_config(
     composer_build_script = "post-update-cmd-wasmer",
     php_version = "8.3.29",
     php_public_dir = "public",
-    # In production, `artisan migrate` asks for an interactive confirmation
-    # ("Are you sure you want to run this command? (yes/no)"). There is no
-    # terminal in the deploy hook, so it silently defaults to "no", the
-    # migration never runs, and the app instance dies. --force skips the
-    # prompt. Without this override the provider default is a plain
-    # `php artisan migrate` (see serve.bzl _override_serve_commands).
     commands = {
-        # One-time organization seed (departments, positions, roles, employee
-        # mapping). Idempotent, but remove after it has run once on production
-        # so deploys stay fast.
-        # One-time organization seed (departments, positions, roles, employee
-        # mapping). Must be a SINGLE command: the deploy hook has no shell,
-        # so "&&" is passed as a literal argument and migrate fails.
-        # Migrations are already applied; restore "php artisan migrate
-        # --force" here once the seed has run.
-        "after_deploy": "php artisan db:seed --class=Database\\Seeders\\NilricOrganizationSeeder --force --no-interaction",  # one-time org seed
+        # Keep the deploy hook to one Artisan command. It runs migrations and
+        # applies the idempotent organization seed without shell chaining.
+        "after_deploy": "php artisan nilric:prepare-deploy --no-interaction",
     },
 )
 

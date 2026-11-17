@@ -182,11 +182,7 @@ class NilricOrganizationSeeder extends Seeder
 
     public function run(): void
     {
-        $company = Company::query()->orderBy('id')->first();
-
-        if (! $company) {
-            throw new RuntimeException('Create the Nilric company before seeding its organization chart.');
-        }
+        $company = $this->resolveCompany();
 
         $creatorId = User::query()
             ->where('default_company_id', $company->id)
@@ -200,6 +196,42 @@ class NilricOrganizationSeeder extends Seeder
         $this->assignReportingLines($mappedEmployees);
         $this->seedRoleTemplates();
         $this->assignEmployeeRoles($mappedEmployees);
+    }
+
+    private function resolveCompany(): Company
+    {
+        $companyId = config('nilric.company_id');
+
+        if ($companyId !== null && $companyId !== '') {
+            $company = Company::query()->find((int) $companyId);
+
+            if (! $company) {
+                throw new RuntimeException('The configured NILRIC_COMPANY_ID does not match an active company.');
+            }
+
+            return $company;
+        }
+
+        $companies = Company::query()->orderBy('id')->get();
+        $nilricCompanies = $companies->filter(fn (Company $company) => Str::contains(Str::lower($company->name), 'nilric'));
+
+        if ($nilricCompanies->count() === 1) {
+            return $nilricCompanies->first();
+        }
+
+        if ($nilricCompanies->count() > 1) {
+            throw new RuntimeException('Multiple Nilric companies were found. Set NILRIC_COMPANY_ID to the company that owns this organization chart.');
+        }
+
+        if ($companies->count() === 1) {
+            return $companies->first();
+        }
+
+        if ($companies->isEmpty()) {
+            throw new RuntimeException('Create the Nilric company before seeding its organization chart.');
+        }
+
+        throw new RuntimeException('Multiple companies were found and none is named Nilric. Set NILRIC_COMPANY_ID before seeding the organization chart.');
     }
 
     /** @return array<string, Department> */

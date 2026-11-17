@@ -1,0 +1,5 @@
+kind: wasmer.io/App.v0
+capabilities:
+  instaboot:
+    requests:
+      - path: /admin/login
