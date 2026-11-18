@@ -15,8 +15,6 @@ class DepartmentSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('employees_departments')->delete();
-
         $company = Company::first();
 
         $user = User::first();
@@ -105,6 +103,15 @@ class DepartmentSeeder extends Seeder
             ],
         ];
 
-        DB::table('employees_departments')->insert($departments);
+        foreach ($departments as $department) {
+            $exists = DB::table('employees_departments')
+                ->where('company_id', $department['company_id'])
+                ->where('name', $department['name'])
+                ->exists();
+
+            if (! $exists) {
+                DB::table('employees_departments')->insert($department);
+            }
+        }
     }
 }

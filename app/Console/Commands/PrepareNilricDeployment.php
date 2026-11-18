@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use Database\Seeders\NilricOrganizationSeeder;
 use Illuminate\Console\Command;
 
 class PrepareNilricDeployment extends Command
@@ -26,9 +25,7 @@ class PrepareNilricDeployment extends Command
 
         $this->info('Applying the Nilric organization chart...');
 
-        return $this->call('db:seed', [
-            '--class'          => NilricOrganizationSeeder::class,
-            '--force'          => true,
+        return $this->call('nilric:ensure-organization', [
             '--no-interaction' => true,
         ]);
     }

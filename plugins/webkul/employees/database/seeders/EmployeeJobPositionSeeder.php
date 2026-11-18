@@ -13,8 +13,6 @@ class EmployeeJobPositionSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('employees_job_positions')->delete();
-
         $user = User::first();
 
         $jobPositions = [
@@ -180,6 +178,15 @@ class EmployeeJobPositionSeeder extends Seeder
             ],
         ];
 
-        DB::table('employees_job_positions')->insert($jobPositions);
+        foreach ($jobPositions as $jobPosition) {
+            $exists = DB::table('employees_job_positions')
+                ->where('company_id', $jobPosition['company_id'])
+                ->where('name', $jobPosition['name'])
+                ->exists();
+
+            if (! $exists) {
+                DB::table('employees_job_positions')->insert($jobPosition);
+            }
+        }
     }
 }

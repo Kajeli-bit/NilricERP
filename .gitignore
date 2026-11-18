@@ -35,3 +35,4 @@ opencode.json
 # Credential files (keystores, private keys, etc.)
 /credentials/
 /storage/backups
+/storage/local-mysql/

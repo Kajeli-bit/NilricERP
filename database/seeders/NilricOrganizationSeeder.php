@@ -198,6 +198,41 @@ class NilricOrganizationSeeder extends Seeder
         $this->assignEmployeeRoles($mappedEmployees);
     }
 
+    public function isOrganizationChartComplete(): bool
+    {
+        $company = $this->resolveCompany();
+
+        $departmentNames = Department::withoutGlobalScopes()
+            ->where('company_id', $company->id)
+            ->whereNull('deleted_at')
+            ->whereIn('name', array_keys(self::DEPARTMENTS))
+            ->pluck('name')
+            ->all();
+
+        if (array_diff(array_keys(self::DEPARTMENTS), $departmentNames) !== []) {
+            return false;
+        }
+
+        $positionNames = EmployeeJobPosition::withoutGlobalScopes()
+            ->where('company_id', $company->id)
+            ->whereNull('deleted_at')
+            ->whereIn('name', array_keys(self::POSITIONS))
+            ->pluck('name')
+            ->all();
+
+        if (array_diff(array_keys(self::POSITIONS), $positionNames) !== []) {
+            return false;
+        }
+
+        $roleNames = Role::withoutGlobalScopes()
+            ->where('guard_name', 'web')
+            ->whereIn('name', array_keys(self::ROLE_PROFILES))
+            ->pluck('name')
+            ->all();
+
+        return array_diff(array_keys(self::ROLE_PROFILES), $roleNames) === [];
+    }
+
     private function resolveCompany(): Company
     {
         $companyId = config('nilric.company_id');
@@ -429,6 +464,10 @@ class NilricOrganizationSeeder extends Seeder
                 'guard_name' => 'web',
             ]);
 
+            if (! $role->wasRecentlyCreated) {
+                continue;
+            }
+
             $allowedActions = match ($profile['level']) {
                 'executive', 'manager' => self::PERMISSION_ACTIONS,
                 'team'                 => ['view_any', 'view', 'create', 'update'],
@@ -482,6 +521,10 @@ class NilricOrganizationSeeder extends Seeder
                 $user = User::query()->find($userId);
 
                 if (! $user || $user->getRoleNames()->map(fn (string $name) => Str::lower($name))->intersect(Role::getSystemRoleNames())->isNotEmpty()) {
+                    continue;
+                }
+
+                if ($user->getRoleNames()->contains($role->name)) {
                     continue;
                 }
 
