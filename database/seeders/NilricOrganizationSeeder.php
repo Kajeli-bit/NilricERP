@@ -46,21 +46,21 @@ class NilricOrganizationSeeder extends Seeder
         'Operations Manager'                       => ['department' => null, 'description' => 'Reports to the General Manager. Oversees day-to-day operations across the six main departments.'],
         'Administration / Human Resource'          => ['department' => 'Administration & Human Resource', 'description' => 'Leads Administration and Human Resource: employee records, recruitment, staff welfare, office administration and policy compliance.'],
         'Business Development Manager'             => ['department' => 'Business Development', 'description' => 'Leads Business Development: tender and sales & marketing teams.'],
-        'Tender Team'                              => ['department' => 'Business Development', 'description' => 'Identifies tender opportunities, prepares documents, quotations and bids, and follows up results. Reports to the Business Development Manager.'],
-        'Sales & Marketing Team'                   => ['department' => 'Business Development', 'description' => 'Promotes products/services, identifies customers, maintains client relationships. Reports to the Business Development Manager.'],
+        'Tendering Officer'                        => ['department' => 'Business Development', 'description' => 'Identifies tender opportunities, prepares documents, quotations and bids, and follows up results. Reports to the Business Development Manager.'],
+        'Sales & Marketing Officer'                => ['department' => 'Business Development', 'description' => 'Promotes products/services, identifies customers, maintains client relationships. Reports to the Business Development Manager.'],
         'Technical ICT Manager'                    => ['department' => 'Technical ICT', 'description' => 'Leads Technical ICT: systems, hardware/software, networks and client/internal technical support.'],
-        'Technical ICT Team'                       => ['department' => 'Technical ICT', 'description' => 'ICT installation, maintenance, network configuration and troubleshooting. Reports to the Technical ICT Manager.'],
+        'Technical ICT Officer'                    => ['department' => 'Technical ICT', 'description' => 'ICT installation, maintenance, network configuration and troubleshooting. Reports to the Technical ICT Manager.'],
         'Finance Manager'                          => ['department' => 'Finance', 'description' => 'Leads Finance: financial records, income/expenditure, budgets, payments and cash-flow monitoring.'],
-        'Finance Team'                             => ['department' => 'Finance', 'description' => 'Financial records and reports, payments and accounting. Reports to the Finance Manager.'],
+        'Finance Officer'                          => ['department' => 'Finance', 'description' => 'Financial records and reports, payments and accounting. Reports to the Finance Manager.'],
         'Medical Project Manager'                  => ['department' => 'Medical Projects', 'description' => 'Leads the Medical Project department and its medical business operations.'],
-        'Medical Team'                             => ['department' => 'Medical Projects', 'description' => 'Implementation and coordination of medical projects and services. Reports to the Medical Project Manager.'],
-        'Engineering Department'                   => ['department' => 'Engineering', 'description' => 'Leads Engineering and reports to the Operations Manager.'],
+        'Medical Officer'                          => ['department' => 'Medical Projects', 'description' => 'Implementation and coordination of medical projects and services. Reports to the Medical Project Manager.'],
+        'Engineering General Manager'              => ['department' => 'Engineering', 'description' => 'Leads Engineering and reports to the Operations Manager.'],
         'Building & Civil Projects Manager'        => ['department' => 'Building & Civil Projects', 'description' => 'Leads building construction and civil engineering works.'],
-        'Civil Engineering Team'                   => ['department' => 'Building & Civil Projects', 'description' => 'Civil engineering activities and project implementation support. Reports to the Building & Civil Projects Manager.'],
+        'Civil Engineer'                           => ['department' => 'Building & Civil Projects', 'description' => 'Civil engineering activities and project implementation support. Reports to the Building & Civil Projects Manager.'],
         'Electrical and Telecommunication Manager' => ['department' => 'Electrical & Telecommunication', 'description' => 'Leads electrical installation, electrical systems and telecommunication works.'],
-        'Electrical and Telecommunication Team'    => ['department' => 'Electrical & Telecommunication', 'description' => 'Technical execution, installation, maintenance and servicing of electrical/telecom systems. Reports to the Electrical and Telecommunication Manager.'],
+        'Electrical and Telecommunication Officer' => ['department' => 'Electrical & Telecommunication', 'description' => 'Technical execution, installation, maintenance and servicing of electrical/telecom systems. Reports to the Electrical and Telecommunication Manager.'],
         'Mechanical Engineering Manager'           => ['department' => 'Mechanical Engineering', 'description' => 'Leads mechanical engineering projects and related technical activities.'],
-        'Mechanical Engineering Team'              => ['department' => 'Mechanical Engineering', 'description' => 'Mechanical installations, maintenance and repairs. Reports to the Mechanical Engineering Manager.'],
+        'Mechanical Engineer'                      => ['department' => 'Mechanical Engineering', 'description' => 'Mechanical installations, maintenance and repairs. Reports to the Mechanical Engineering Manager.'],
     ];
 
     /**
@@ -70,8 +70,17 @@ class NilricOrganizationSeeder extends Seeder
      * @var array<string, string>
      */
     private const POSITION_ALIASES = [
-        'QSHE'               => 'QHSE',
-        'Operations Manager' => 'Operation Manager',
+        'QSHE'                                     => 'QHSE',
+        'Operations Manager'                       => 'Operation Manager',
+        'Tendering Officer'                        => 'Tender Team',
+        'Sales & Marketing Officer'                => 'Sales & Marketing Team',
+        'Technical ICT Officer'                    => 'Technical ICT Team',
+        'Finance Officer'                          => 'Finance Team',
+        'Medical Officer'                          => 'Medical Team',
+        'Engineering General Manager'              => 'Engineering Department',
+        'Civil Engineer'                           => 'Civil Engineering Team',
+        'Electrical and Telecommunication Officer' => 'Electrical and Telecommunication Team',
+        'Mechanical Engineer'                      => 'Mechanical Engineering Team',
     ];
 
     /**
@@ -121,7 +130,7 @@ class NilricOrganizationSeeder extends Seeder
         'Technical ICT Manager'                    => ['modules' => ['employees', 'projects', 'timesheets', 'maintenance', 'time-off'], 'level' => 'manager'],
         'Finance Manager'                          => ['modules' => ['accounts', 'accounting', 'invoices', 'payments', 'contacts', 'partners', 'employees', 'time-off'], 'level' => 'manager'],
         'Medical Project Manager'                  => ['modules' => ['projects', 'timesheets', 'purchases', 'products', 'inventories', 'maintenance', 'employees', 'time-off'], 'level' => 'manager'],
-        'Engineering Department Head'              => ['modules' => ['projects', 'timesheets', 'purchases', 'products', 'inventories', 'maintenance', 'employees', 'time-off'], 'level' => 'manager'],
+        'Engineering General Manager'              => ['modules' => ['projects', 'timesheets', 'purchases', 'products', 'inventories', 'maintenance', 'employees', 'time-off'], 'level' => 'manager'],
 
         // Engineering section managers
         'Building & Civil Projects Manager'        => ['modules' => ['projects', 'timesheets', 'purchases', 'products', 'inventories', 'maintenance', 'employees', 'time-off'], 'level' => 'manager'],
@@ -129,24 +138,38 @@ class NilricOrganizationSeeder extends Seeder
         'Mechanical Engineering Manager'           => ['modules' => ['projects', 'timesheets', 'purchases', 'products', 'inventories', 'maintenance', 'employees', 'time-off'], 'level' => 'manager'],
 
         // Teams (view/create/update own work only)
-        'Tender Team'                              => ['modules' => ['employees', 'time-off', 'projects'], 'level' => 'team'],
-        'Sales & Marketing Team'                   => ['modules' => ['employees', 'time-off', 'sales', 'contacts', 'partners'], 'level' => 'team'],
-        'Technical ICT Team'                       => ['modules' => ['employees', 'time-off', 'projects', 'maintenance'], 'level' => 'team'],
-        'Finance Team'                             => ['modules' => ['employees', 'time-off', 'invoices', 'payments', 'accounting'], 'level' => 'team'],
-        'Medical Team'                             => ['modules' => ['employees', 'time-off', 'projects', 'timesheets'], 'level' => 'team'],
-        'Civil Engineering Team'                   => ['modules' => ['employees', 'time-off', 'projects', 'timesheets'], 'level' => 'team'],
-        'Electrical and Telecommunication Team'    => ['modules' => ['employees', 'time-off', 'projects', 'maintenance'], 'level' => 'team'],
-        'Mechanical Engineering Team'              => ['modules' => ['employees', 'time-off', 'projects', 'maintenance'], 'level' => 'team'],
+        'Tendering Officer'                        => ['modules' => ['employees', 'time-off', 'projects'], 'level' => 'team'],
+        'Sales & Marketing Officer'                => ['modules' => ['employees', 'time-off', 'sales', 'contacts', 'partners'], 'level' => 'team'],
+        'Technical ICT Officer'                    => ['modules' => ['employees', 'time-off', 'projects', 'maintenance'], 'level' => 'team'],
+        'Finance Officer'                          => ['modules' => ['employees', 'time-off', 'invoices', 'payments', 'accounting'], 'level' => 'team'],
+        'Medical Officer'                          => ['modules' => ['employees', 'time-off', 'projects', 'timesheets'], 'level' => 'team'],
+        'Civil Engineer'                           => ['modules' => ['employees', 'time-off', 'projects', 'timesheets'], 'level' => 'team'],
+        'Electrical and Telecommunication Officer' => ['modules' => ['employees', 'time-off', 'projects', 'maintenance'], 'level' => 'team'],
+        'Mechanical Engineer'                      => ['modules' => ['employees', 'time-off', 'projects', 'maintenance'], 'level' => 'team'],
+    ];
+
+    /**
+     * @var array<string, string>
+     */
+    private const ROLE_ALIASES = [
+        'Engineering General Manager'              => 'Engineering Department Head',
+        'Tendering Officer'                        => 'Tender Team',
+        'Sales & Marketing Officer'                => 'Sales & Marketing Team',
+        'Technical ICT Officer'                    => 'Technical ICT Team',
+        'Finance Officer'                          => 'Finance Team',
+        'Medical Officer'                          => 'Medical Team',
+        'Civil Engineer'                           => 'Civil Engineering Team',
+        'Electrical and Telecommunication Officer' => 'Electrical and Telecommunication Team',
+        'Mechanical Engineer'                      => 'Mechanical Engineering Team',
     ];
 
     /**
      * Maps a position to the role given to its employees.
-     * 'Engineering Department' (position) uses the head role name.
+     * 'Administration / Human Resource' uses its matching manager role.
      *
      * @var array<string, string>
      */
     private const POSITION_ROLES = [
-        'Engineering Department'                   => 'Engineering Department Head',
         'Administration / Human Resource'          => 'Administration & Human Resource Manager',
     ];
 
@@ -164,20 +187,20 @@ class NilricOrganizationSeeder extends Seeder
             'Technical ICT Manager',
             'Finance Manager',
             'Medical Project Manager',
-            'Engineering Department',
+            'Engineering General Manager',
         ],
-        'Business Development Manager' => ['Tender Team', 'Sales & Marketing Team'],
-        'Technical ICT Manager'        => ['Technical ICT Team'],
-        'Finance Manager'              => ['Finance Team'],
-        'Medical Project Manager'      => ['Medical Team'],
-        'Engineering Department'       => [
+        'Business Development Manager' => ['Tendering Officer', 'Sales & Marketing Officer'],
+        'Technical ICT Manager'        => ['Technical ICT Officer'],
+        'Finance Manager'              => ['Finance Officer'],
+        'Medical Project Manager'      => ['Medical Officer'],
+        'Engineering General Manager'  => [
             'Building & Civil Projects Manager',
             'Electrical and Telecommunication Manager',
             'Mechanical Engineering Manager',
         ],
-        'Building & Civil Projects Manager'        => ['Civil Engineering Team'],
-        'Electrical and Telecommunication Manager' => ['Electrical and Telecommunication Team'],
-        'Mechanical Engineering Manager'           => ['Mechanical Engineering Team'],
+        'Building & Civil Projects Manager'        => ['Civil Engineer'],
+        'Electrical and Telecommunication Manager' => ['Electrical and Telecommunication Officer'],
+        'Mechanical Engineering Manager'           => ['Mechanical Engineer'],
     ];
 
     public function run(): void
@@ -230,7 +253,15 @@ class NilricOrganizationSeeder extends Seeder
             ->pluck('name')
             ->all();
 
-        return array_diff(array_keys(self::ROLE_PROFILES), $roleNames) === [];
+        if (array_diff(array_keys(self::ROLE_PROFILES), $roleNames) !== []) {
+            return false;
+        }
+
+        return ! Role::withoutGlobalScopes()
+            ->where('guard_name', 'web')
+            ->whereIn('name', array_keys(self::ROLE_PROFILES))
+            ->whereDoesntHave('permissions')
+            ->exists();
     }
 
     private function resolveCompany(): Company
@@ -363,28 +394,29 @@ class NilricOrganizationSeeder extends Seeder
             ])));
 
             $positionName = match (true) {
-                Str::contains($title, 'managing director')                                                                  => 'Managing Director',
-                Str::contains($title, 'general manager')                                                                    => 'General Manager',
-                Str::contains($title, ['operation manager', 'operations manager'])                                          => 'Operations Manager',
-                Str::contains($title, ['qshe', 'qhse', 'quality, health, safety'])                                          => 'QSHE',
-                Str::contains($title, ['administration', 'administrative', 'hr manager', 'human resource'])                 => 'Administration / Human Resource',
-                Str::contains($title, ['business development manager', 'business development'])                             => 'Business Development Manager',
-                Str::contains($title, 'tender')                                                                             => 'Tender Team',
-                Str::contains($title, ['sales', 'marketing'])                                                               => 'Sales & Marketing Team',
-                Str::contains($title, ['technical manager', 'ict manager', 'it manager'])                                   => 'Technical ICT Manager',
-                Str::contains($title, ['developer', 'software engineer', 'qa engineer', 'ux designer', 'data scientist'])   => 'Technical ICT Team',
-                Str::contains($title, 'finance manager')                                                                    => 'Finance Manager',
-                Str::contains($title, 'finance')                                                                            => 'Finance Team',
-                Str::contains($title, ['medical project manager', 'medical projects manager'])                              => 'Medical Project Manager',
-                Str::contains($title, ['medical team', 'medical officer'])                                                  => 'Medical Team',
-                Str::contains($title, ['engineering department manager', 'engineering department', 'engineering director']) => 'Engineering Department',
-                Str::contains($title, ['building', 'civil']) && Str::contains($title, 'manager')                            => 'Building & Civil Projects Manager',
-                Str::contains($title, ['building', 'civil'])                                                                => 'Civil Engineering Team',
-                Str::contains($title, ['electrical', 'telecommunication']) && Str::contains($title, 'manager')              => 'Electrical and Telecommunication Manager',
-                Str::contains($title, ['electrical', 'telecommunication'])                                                  => 'Electrical and Telecommunication Team',
-                Str::contains($title, 'mechanical') && Str::contains($title, 'manager')                                     => 'Mechanical Engineering Manager',
-                Str::contains($title, 'mechanical')                                                                         => 'Mechanical Engineering Team',
-                default                                                                                                     => null,
+                Str::contains($title, 'managing director')                                                                                                 => 'Managing Director',
+                Str::contains($title, 'general manager')                                                                                                   => 'General Manager',
+                Str::contains($title, ['operation manager', 'operations manager'])                                                                         => 'Operations Manager',
+                Str::contains($title, ['qshe', 'qhse', 'quality, health, safety'])                                                                         => 'QSHE',
+                Str::contains($title, ['administration', 'administrative', 'hr manager', 'human resource'])                                                => 'Administration / Human Resource',
+                Str::contains($title, ['business development manager', 'business development'])                                                            => 'Business Development Manager',
+                Str::contains($title, 'tender')                                                                                                            => 'Tendering Officer',
+                Str::contains($title, ['sales', 'marketing'])                                                                                              => 'Sales & Marketing Officer',
+                Str::contains($title, ['technical manager', 'ict manager', 'it manager'])                                                                  => 'Technical ICT Manager',
+                Str::contains($title, ['technical ict officer', 'ict officer', 'it officer'])                                                              => 'Technical ICT Officer',
+                Str::contains($title, ['developer', 'software engineer', 'qa engineer', 'ux designer', 'data scientist'])                                  => 'Technical ICT Officer',
+                Str::contains($title, 'finance manager')                                                                                                   => 'Finance Manager',
+                Str::contains($title, 'finance')                                                                                                           => 'Finance Officer',
+                Str::contains($title, ['medical project manager', 'medical projects manager'])                                                             => 'Medical Project Manager',
+                Str::contains($title, ['medical team', 'medical officer'])                                                                                 => 'Medical Officer',
+                Str::contains($title, ['engineering general manager', 'engineering department manager', 'engineering department', 'engineering director']) => 'Engineering General Manager',
+                Str::contains($title, ['building', 'civil']) && Str::contains($title, 'manager')                                                           => 'Building & Civil Projects Manager',
+                Str::contains($title, ['building', 'civil'])                                                                                               => 'Civil Engineer',
+                Str::contains($title, ['electrical', 'telecommunication']) && Str::contains($title, 'manager')                                             => 'Electrical and Telecommunication Manager',
+                Str::contains($title, ['electrical', 'telecommunication'])                                                                                 => 'Electrical and Telecommunication Officer',
+                Str::contains($title, 'mechanical') && Str::contains($title, 'manager')                                                                    => 'Mechanical Engineering Manager',
+                Str::contains($title, 'mechanical')                                                                                                        => 'Mechanical Engineer',
+                default                                                                                                                                    => null,
             };
 
             if (! $positionName) {
@@ -419,7 +451,7 @@ class NilricOrganizationSeeder extends Seeder
             'Technical ICT'                   => 'Technical ICT Manager',
             'Finance'                         => 'Finance Manager',
             'Medical Projects'                => 'Medical Project Manager',
-            'Engineering'                     => 'Engineering Department',
+            'Engineering'                     => 'Engineering General Manager',
             'Building & Civil Projects'       => 'Building & Civil Projects Manager',
             'Electrical & Telecommunication'  => 'Electrical and Telecommunication Manager',
             'Mechanical Engineering'          => 'Mechanical Engineering Manager',
@@ -459,12 +491,30 @@ class NilricOrganizationSeeder extends Seeder
             ->pluck('name');
 
         foreach (self::ROLE_PROFILES as $name => $profile) {
-            $role = Role::query()->firstOrCreate([
+            $role = Role::query()
+                ->where('name', $name)
+                ->where('guard_name', 'web')
+                ->first();
+
+            if (! $role && isset(self::ROLE_ALIASES[$name])) {
+                $role = Role::query()
+                    ->where('name', self::ROLE_ALIASES[$name])
+                    ->where('guard_name', 'web')
+                    ->first();
+
+                if ($role) {
+                    $role->name = $name;
+                    $role->save();
+                    $role->forgetCachedPermissions();
+                }
+            }
+
+            $role ??= Role::query()->firstOrCreate([
                 'name'       => $name,
                 'guard_name' => 'web',
             ]);
 
-            if (! $role->wasRecentlyCreated) {
+            if (! $role->wasRecentlyCreated && $role->permissions()->exists()) {
                 continue;
             }
 
